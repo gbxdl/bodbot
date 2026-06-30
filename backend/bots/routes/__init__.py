@@ -4,11 +4,11 @@ from pydantic import BaseModel
 from ..dummies.wout import bot as wout_bot
 
 # Ok nu echt
-from ..eddyMerckx import bot as eddy_bot
-from ..lucas import bot as lucas_bot
-from ..hendrik import bot as hendrik_bot
-from ..tom import bot as tom_bot
-from ..niels import bot as niels_bot
+# from ..eddyMerckx import bot as eddy_bot
+# from ..lucas import bot as lucas_bot
+# from ..hendrik import bot as hendrik_bot
+# from ..tom import bot as tom_bot
+# from ..niels import bot as niels_bot
 
 
 class BidEntry(BaseModel):
@@ -84,77 +84,77 @@ def call_wout(req: BotRequest):
         rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
     )
 
-@router.post("/eddyMerckx")
-def call_eddy(req: BotRequest):
-    return eddy_bot(
-        rider=req.rider,
-        rider_bib=req.riderBib,
-        highest_bid=req.highestBid,
-        highest_bid_by=req.highestBidBy,
-        bids=[b.model_dump() for b in req.bids],
-        you=req.you.model_dump(),
-        others=[o.model_dump() for o in req.others],
-        upcoming_riders=req.upcomingRiders,
-        previous_riders=req.previousRiders,
-        rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
-    )
+# @router.post("/eddyMerckx")
+# def call_eddy(req: BotRequest):
+#     return eddy_bot(
+#         rider=req.rider,
+#         rider_bib=req.riderBib,
+#         highest_bid=req.highestBid,
+#         highest_bid_by=req.highestBidBy,
+#         bids=[b.model_dump() for b in req.bids],
+#         you=req.you.model_dump(),
+#         others=[o.model_dump() for o in req.others],
+#         upcoming_riders=req.upcomingRiders,
+#         previous_riders=req.previousRiders,
+#         rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
+#     )
 
-@router.post("/lucas")
-def call_lucas(req: BotRequest):
-    return lucas_bot(
-      rider=req.rider,
-        rider_bib=req.riderBib,
-        highest_bid=req.highestBid,
-        highest_bid_by=req.highestBidBy,
-        bids=[b.model_dump() for b in req.bids],
-        you=req.you.model_dump(),
-        others=[o.model_dump() for o in req.others],
-        upcoming_riders=req.upcomingRiders,
-        previous_riders=req.previousRiders,
-        rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
-    )
+# @router.post("/lucas")
+# def call_lucas(req: BotRequest):
+#     return lucas_bot(
+#       rider=req.rider,
+#         rider_bib=req.riderBib,
+#         highest_bid=req.highestBid,
+#         highest_bid_by=req.highestBidBy,
+#         bids=[b.model_dump() for b in req.bids],
+#         you=req.you.model_dump(),
+#         others=[o.model_dump() for o in req.others],
+#         upcoming_riders=req.upcomingRiders,
+#         previous_riders=req.previousRiders,
+#         rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
+#     )
 
-@router.post("/hendrik")
-def call_wout(req: BotRequest):
-    return hendrik_bot(
-        rider=req.rider,
-        rider_bib=req.riderBib,
-        highest_bid=req.highestBid,
-        highest_bid_by=req.highestBidBy,
-        bids=[b.model_dump() for b in req.bids],
-        you=req.you.model_dump(),
-        others=[o.model_dump() for o in req.others],
-        upcoming_riders=req.upcomingRiders,
-        previous_riders=req.previousRiders,
-        rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
-    )
+# @router.post("/hendrik")
+# def call_wout(req: BotRequest):
+#     return hendrik_bot(
+#         rider=req.rider,
+#         rider_bib=req.riderBib,
+#         highest_bid=req.highestBid,
+#         highest_bid_by=req.highestBidBy,
+#         bids=[b.model_dump() for b in req.bids],
+#         you=req.you.model_dump(),
+#         others=[o.model_dump() for o in req.others],
+#         upcoming_riders=req.upcomingRiders,
+#         previous_riders=req.previousRiders,
+#         rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
+#     )
 
-@router.post("/tom")
-def call_wout(req: BotRequest):
-    return tom_bot(
-        rider=req.rider,
-        rider_bib=req.riderBib,
-        highest_bid=req.highestBid,
-        highest_bid_by=req.highestBidBy,
-        bids=[b.model_dump() for b in req.bids],
-        you=req.you.model_dump(),
-        others=[o.model_dump() for o in req.others],
-        upcoming_riders=req.upcomingRiders,
-        previous_riders=req.previousRiders,
-        rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
-    )
+# @router.post("/tom")
+# def call_wout(req: BotRequest):
+#     return tom_bot(
+#         rider=req.rider,
+#         rider_bib=req.riderBib,
+#         highest_bid=req.highestBid,
+#         highest_bid_by=req.highestBidBy,
+#         bids=[b.model_dump() for b in req.bids],
+#         you=req.you.model_dump(),
+#         others=[o.model_dump() for o in req.others],
+#         upcoming_riders=req.upcomingRiders,
+#         previous_riders=req.previousRiders,
+#         rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
+#     )
 
-@router.post("/niels")
-def call_niels(req: BotRequest):
-    return niels_bot(
-        rider=req.rider,
-        rider_bib=req.riderBib,
-        highest_bid=req.highestBid,
-        highest_bid_by=req.highestBidBy,
-        bids=[b.model_dump() for b in req.bids],
-        you=req.you.model_dump(),
-        others=[o.model_dump() for o in req.others],
-        upcoming_riders=req.upcomingRiders,
-        previous_riders=req.previousRiders,
-        rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
-    )
+# @router.post("/niels")
+# def call_niels(req: BotRequest):
+#     return niels_bot(
+#         rider=req.rider,
+#         rider_bib=req.riderBib,
+#         highest_bid=req.highestBid,
+#         highest_bid_by=req.highestBidBy,
+#         bids=[b.model_dump() for b in req.bids],
+#         you=req.you.model_dump(),
+#         others=[o.model_dump() for o in req.others],
+#         upcoming_riders=req.upcomingRiders,
+#         previous_riders=req.previousRiders,
+#         rider_info=req.riderInfo.model_dump() if req.riderInfo else None,
+#     )

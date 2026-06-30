@@ -1,7 +1,7 @@
 import { Separator } from '@radix-ui/react-separator';
 import { Rabbit, Tablets, Turtle, Zap } from 'lucide-react';
 import { useEffect, useReducer, useRef, useState } from 'react';
-import { toast, Toaster } from 'sonner';
+import { Toaster } from 'sonner';
 import './App.css';
 import AuctionInfo from './components/auction-info';
 import Header from './components/header';
@@ -66,7 +66,7 @@ function App() {
 
   useEffect(() => {
     if (initialStartlistLengthRef.current > 0) return
-    fetch('http://localhost:8000/startlist/giro-d-italia/2026')
+    fetch('http://localhost:8000/startlist/tour-de-france/2026')
       .then(r => r.json())
       .then(riders => dispatch({ type: 'set-startlist', riders }))
       .catch(() => {
