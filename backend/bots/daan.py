@@ -144,7 +144,7 @@ class theSuperComputer:
         return (rider_info.get('pointsPerSeasonHistory') or [{}])[0].get('points') or 0
 
     def getPointsLastYear(self, rider_info):
-        return (rider_info.get('pointsPerSeasonHistory') or [{}])[1].get('points') or 0
+        return (rider_info.get('pointsPerSeasonHistory') or [{}, {}])[1].get('points') or 0
 
     def computeSpotsLeft(self, you: YouState, others: list[OtherState]):
         spotsLeft = SPOTS_PER_TEAM - len(you['riders'])
